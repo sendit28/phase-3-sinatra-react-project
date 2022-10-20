@@ -13,6 +13,11 @@ class ApplicationController < Sinatra::Base
     users.to_json
   end
 
+  get '/users/:id' do
+    user = User.find(params[:id])
+    user.to_json
+  end
+
   post '/users' do
     user = User.create(
       name: params[:name],
@@ -22,7 +27,7 @@ class ApplicationController < Sinatra::Base
     user.to_json
   end
 
-  patch '/user/:id' do
+  patch '/users/:id' do
     user = User.find(params[:id])
     user.update(
       # question ?????????????
@@ -33,7 +38,7 @@ class ApplicationController < Sinatra::Base
     user.to_jason
   end
 
-  delete 'user/:id' do
+  delete 'users/:id' do
     user = User.find(params[:id])
     user.destroy
     user.to_json
@@ -43,6 +48,11 @@ class ApplicationController < Sinatra::Base
   
   get '/journal_entries' do
     journal_entry = JournalEntry.all.order(date: :desc)
+    journal_entry.to_json
+  end
+
+  get '/journal_entries/:id' do
+    journal_entry = JournalEntry.find(params[:id])
     journal_entry.to_json
   end
 
