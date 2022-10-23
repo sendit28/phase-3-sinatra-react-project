@@ -25,9 +25,4 @@ binding.pry
 
 # Category.create(name: "Open", journal_entry_id: 1)
 
-
-
-
-
-
 puts "✅ Done seeding!"
