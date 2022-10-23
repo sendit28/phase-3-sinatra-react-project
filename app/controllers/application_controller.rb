@@ -77,13 +77,12 @@ class ApplicationController < Sinatra::Base
     journal_entry.to_json
   end
 
-  delete '/journal_entrie/:id' do
+  delete '/journal_entries/:id' do
     journal_entry = JournalEntry.find(params[:id])
     journal_entry.destroy
     journal_entry.to_json
   end
-
-  
+    
       # ----------------------------------------------
   
   get '/categories' do
