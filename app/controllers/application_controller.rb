@@ -45,9 +45,10 @@ class ApplicationController < Sinatra::Base
   end
 
     # ------------------------------------------- 
-  
+    # .order(date: :desc)
+
   get '/journal_entries' do
-    journal_entry = JournalEntry.all.order(date: :desc)
+    journal_entry = JournalEntry.all
     journal_entry.to_json
   end
 
@@ -56,6 +57,7 @@ class ApplicationController < Sinatra::Base
     journal_entry.to_json
   end
 
+ 
   post '/journal_entries' do
     journal_entry = JournalEntry.create(
       title: params[:title],
