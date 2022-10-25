@@ -65,6 +65,7 @@ class ApplicationController < Sinatra::Base
       date: params[:date],
       user_id: params[:user_id]
     )
+    binding.pry
     journal_entry.to_json
   end
 
